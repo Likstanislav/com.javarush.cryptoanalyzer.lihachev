@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class StartApp {
+public class Application {
     public static void main(String[] args) {
         System.out.println("""
                 Welcome in my Cryptoanalyzer!
@@ -11,7 +11,12 @@ public class StartApp {
         int choose = new Scanner(System.in).nextInt();
         switch (choose) {
             case 1 -> {
-                System.out.println("You choose text encryption");
+                System.out.println("You choose text encryption" +
+                        "\nWrite the path to the file: ");
+                System.out.println("Write key:");
+                int key = new Scanner(System.in).nextInt();
+
+
             }
             case 2 -> {
                 System.out.println("You choose text decryption");
