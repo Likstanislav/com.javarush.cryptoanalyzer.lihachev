@@ -60,11 +60,26 @@ public class Application {
                 System.out.println("Write the path to write the file:");
                 String filePathWrite = scanner.nextLine();
                 List<String> srcStrings = filesProcessor.readFile(filePathRead);
-                for (String srcString : srcStrings) {
-                    String decryptCryptLine = bruteForce.bruteForce(srcString);
+
+                boolean isYes = false;
+                String decryptCryptLine = null;
+                while (!isYes) {
+                    for (int key = 1; key < alphabet.getSize(); key++) {
+                        for (String srcString : srcStrings) {
+                            decryptCryptLine = bruteForce.bruteForce(srcString, key);
+                            System.out.println("It is ok?\nWrite - yes or no!");
+                            System.out.println(decryptCryptLine);
+                        }
+                        String line = scanner.nextLine();
+                        if (line.contains("yes")) {
+                            break;
+                        }
+                    }
+                    isYes = true;
                     filesProcessor.appendToFile(filePathWrite, decryptCryptLine);
                 }
                 System.out.println("Done!");
+
             }
             default -> {
                 System.out.println("You choose something wrong!" + "\nTry to run the program again");
