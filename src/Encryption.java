@@ -25,5 +25,4 @@ public class Encryption {
     private Character toLowerCase(Character character) {
         return (character + "").toLowerCase().charAt(0);
     }
-
 }

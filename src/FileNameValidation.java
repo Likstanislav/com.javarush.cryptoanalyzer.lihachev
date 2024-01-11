@@ -18,6 +18,7 @@ public class FileNameValidation {
             throw new RuntimeException("You don't have right to read from the file");
         }
     }
+
     public void validateForWriting(String fileName) {
         Path path = validatePath(fileName);
         if (Files.exists(path)) {
@@ -43,5 +44,4 @@ public class FileNameValidation {
             throw new RuntimeException("Invalid path reason: " + ex.getMessage());
         }
     }
-
 }

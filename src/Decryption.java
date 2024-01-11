@@ -16,7 +16,6 @@ public class Decryption {
             int originalCharIndex = alphabet.getCharIndex(originalChar);
             int newCharIndex = (alphabet.getSize() + (originalCharIndex + key)) % alphabet.getSize();
             result.append(alphabet.getCharByIndex(newCharIndex));
-
         }
         return result.toString();
     }
